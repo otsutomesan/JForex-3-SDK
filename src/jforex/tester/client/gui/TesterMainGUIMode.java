@@ -29,6 +29,7 @@
  */
 package jforex.tester.client.gui;
 
+import addition.Config;
 import com.dukascopy.api.system.ISystemListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,8 @@ import singlejartest.MA_Play;
 
 import java.io.File;
 
+//import static addition.Config.readConfig;
+
 /**
  * This small program demonstrates how to initialize Dukascopy tester and start a strategy in GUI mode
  */
@@ -46,15 +49,24 @@ public class TesterMainGUIMode {
     private static final Logger LOGGER = LoggerFactory.getLogger(TesterMainGUIMode.class);
 
     private static String jnlpUrl = "http://platform.dukascopy.com/demo/jforex.jnlp";
-    private static String userName = "username";
-    private static String password = "password";
-    private static String reportFileName = "C:\\report.html";
+    private static String userName;
+    private static String password;
+    private static String reportFileName;
+
     private static Instrument instrument = Instrument.EURUSD;
 
     private static MyTesterWindow myTesterWindow;
     private static TesterClientRunner testerClientRunner;
 
+    private static void setProperties() {
+        Config.readConfig();
+        userName = Config.id_jforex3;
+        password = Config.pwd_jforex3;
+        reportFileName = Config.dir_output + "\\report.html";
+    }
+
     public static void main(String[] args) throws Exception {
+        setProperties();
         testerClientRunner = new TesterClientRunner();
         myTesterWindow = new MyTesterWindow(instrument, getTesterThread());
         myTesterWindow.showChartFrame();

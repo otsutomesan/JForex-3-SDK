@@ -1,0 +1,4 @@
+# rename config.properties.sample to config.properties and set youre id and password of jforex3.
+ID_jforex3=id_xxx
+PWD_jforex3=pwd_xxx
+DIR_work=C:
