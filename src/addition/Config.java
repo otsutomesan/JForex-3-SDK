@@ -14,7 +14,7 @@ public class Config {
     static public void readConfig(){
         //HashMap<String,String> properties = new HashMap<String,String>();
         Properties conf = new Properties();
-        String filename = "./configMap.properties";
+        String filename = "./config.properties";
         try {
             conf.load(new FileInputStream(filename));
         } catch (IOException e) {

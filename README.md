@@ -8,4 +8,4 @@ Sample code in JForex3-SDK
 
 ### id and password
 rename config.properties.sample to config.properties  
-and set youre id and password of JForex3.
+and set your id and password of JForex3.
